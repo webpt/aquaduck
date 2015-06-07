@@ -7,9 +7,7 @@ use Webpt\Aquaduck\Utility;
 
 final class ErrorHandlerUtility
 {
-    private function __construct()
-    {
-    }
+    private function __construct(){}
 
     public static function isErrorHandler($middleware)
     {

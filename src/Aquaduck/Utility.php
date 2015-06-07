@@ -8,9 +8,7 @@ use Closure;
 
 final class Utility
 {
-    private function __construct()
-    {
-    }
+    private function __construct(){}
 
     public static function getNumberOfRequiredParameters($middleware)
     {

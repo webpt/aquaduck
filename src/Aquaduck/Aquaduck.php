@@ -5,7 +5,7 @@ namespace Webpt\Aquaduck;
 use Webpt\Aquaduck\Exception\InvalidArgumentException;
 use SplPriorityQueue;
 
-class Aquaduck implements AquaduckInterface
+class Aquaduck implements AquaduckInterface, PriorityBindableInterface
 {
     private $queue;
 

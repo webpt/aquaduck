@@ -7,7 +7,7 @@ use SplPriorityQueue;
 
 class Aquaduck
 {
-    private $queue;
+    private $serial = PHP_INT_MAX;
 
     public function __construct()
     {
@@ -29,6 +29,10 @@ class Aquaduck
     {
         if (!is_callable($middleware)) {
             throw new InvalidArgumentException('Middleware must be callable');
+        }
+
+        if (!is_array($priority)) {
+            $priority = [$priority, $this->serial--];
         }
 
         $this->queue->insert($middleware, $priority);

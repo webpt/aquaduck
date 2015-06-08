@@ -32,7 +32,7 @@ class Aquaduck implements AquaduckInterface, PriorityBindableInterface
         }
 
         if (!is_array($priority)) {
-            $priority = [$priority, $this->serial--];
+            $priority = array($priority, $this->serial--);
         }
 
         $this->queue->insert($middleware, $priority);

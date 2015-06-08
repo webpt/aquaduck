@@ -29,7 +29,7 @@ class Next
         $done     = $this->done;
 
         if ($this->queue->isEmpty()) {
-            return $done($subject, $err);
+            return call_user_func($done, $subject, $err);
         }
         $layer  = $this->queue->extract();
         return $handler($layer, $subject, $err, $this);

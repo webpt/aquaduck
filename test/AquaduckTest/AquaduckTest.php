@@ -33,7 +33,7 @@ class AquaduckTest extends \PHPUnit_Framework_TestCase
         $aquaduck(1, 'totally-invalid-argument');
     }
 
-    public function testMiddlewarePriorityReturnsLIFO()
+    public function testMiddlewarePriorityReturnsFIFO()
     {
         $aquaduck = $this->aquaduck;
         $aquaduck->bind(function($subject, $next) {

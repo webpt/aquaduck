@@ -2,7 +2,7 @@
 
 namespace Webpt\Aquaduck;
 
-interface PriorityBindableInterface extends BindableInterface
+interface PriorityBindableInterface
 {
     /**
      * @param ErrorHandler\ErrorHandlerInterface|MiddlewareInterface|callable $middleware

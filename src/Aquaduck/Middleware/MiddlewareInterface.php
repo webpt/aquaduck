@@ -1,6 +1,6 @@
 <?php
 
-namespace Webpt\Aquaduck;
+namespace Webpt\Aquaduck\Middleware;
 
 interface MiddlewareInterface
 {

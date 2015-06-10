@@ -24,7 +24,7 @@ class ErrorHandlerUtilityTest extends \PHPUnit_Framework_TestCase
                 true
             ),
             array(
-                $this->getMock('Webpt\Aquaduck\MiddlewareInterface'),
+                $this->getMock('Webpt\Aquaduck\Middleware\MiddlewareInterface'),
                 false
             ),
             array(

@@ -2,7 +2,7 @@
 
 namespace Webpt\Aquaduck\ErrorHandler;
 
-use Webpt\Aquaduck\MiddlewareInterface;
+use Webpt\Aquaduck\Middleware\MiddlewareInterface;
 use Webpt\Aquaduck\Utility;
 
 final class ErrorHandlerUtility

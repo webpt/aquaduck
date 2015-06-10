@@ -8,7 +8,7 @@ class UtilityTest extends \PHPUnit_Framework_TestCase
 {
     public function aFunctionWithThreeArguments($arg1, $arg2, $arg3)
     {
-
+        return compact($arg1, $arg2, $arg3);
     }
 
     public function getCallables()
@@ -19,7 +19,7 @@ class UtilityTest extends \PHPUnit_Framework_TestCase
                 2
             ),
             array(
-                $this->getMock('Webpt\Aquaduck\MiddlewareInterface'),
+                $this->getMock('Webpt\Aquaduck\Middleware\MiddlewareInterface'),
                 1
             ),
             array(

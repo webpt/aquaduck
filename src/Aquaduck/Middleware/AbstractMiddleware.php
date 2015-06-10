@@ -50,5 +50,5 @@ abstract class AbstractMiddleware implements MiddlewareInterface
         return $transformed;
     }
 
-    abstract protected function execute(array $subject);
+    abstract protected function execute($subject);
 }

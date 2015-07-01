@@ -1,5 +1,6 @@
 {
     "name": "webpt/aquaduck",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Tim Klever",

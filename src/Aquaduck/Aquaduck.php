@@ -4,8 +4,9 @@ namespace Webpt\Aquaduck;
 
 use Webpt\Aquaduck\Exception\InvalidArgumentException;
 use SplPriorityQueue;
+use Webpt\Aquaduck\Middleware\MiddlewareInterface;
 
-class Aquaduck implements AquaduckInterface, PriorityBindableInterface
+class Aquaduck implements MiddlewareInterface, PriorityBindableInterface
 {
     private $serial = PHP_INT_MAX;
 

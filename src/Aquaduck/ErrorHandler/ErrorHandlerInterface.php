@@ -4,5 +4,11 @@ namespace Webpt\Aquaduck\ErrorHandler;
 
 interface ErrorHandlerInterface
 {
-    public function __invoke($error, $subject, $next = null);
+    /**
+     * @param $error
+     * @param mixed $subject
+     * @param callable $next
+     * @return mixed
+     */
+    public function __invoke($error, $subject, callable $next = null);
 }

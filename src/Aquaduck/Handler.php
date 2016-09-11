@@ -4,24 +4,22 @@ namespace Webpt\Aquaduck;
 
 use Exception;
 use Webpt\Aquaduck\ErrorHandler\ErrorHandlerUtility;
-use Webpt\Aquaduck\Exception\InvalidArgumentException;
 
 class Handler implements HandlerInterface
 {
+    /**
+     * @param callable $middleware
+     * @param mixed $subject
+     * @param mixed $err
+     * @param callable $next
+     * @return mixed
+     */
     public function __invoke(
-        $middleware,
+        callable $middleware,
         $subject,
         $err,
-        $next
+        callable $next
     ) {
-        if (!is_callable($middleware)) {
-            throw new InvalidArgumentException('$middleware must be callable');
-        }
-
-        if (!is_callable($next)) {
-            throw new InvalidArgumentException('$next must be callable');
-        }
-
         $hasError = (null !== $err);
         $isErrorHandler = ErrorHandlerUtility::isErrorHandler($middleware);
 

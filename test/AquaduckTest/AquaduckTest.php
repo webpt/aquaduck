@@ -16,19 +16,25 @@ class AquaduckTest extends \PHPUnit_Framework_TestCase
         $this->aquaduck = new Aquaduck();
     }
 
-    /**
-     * @expectedException \Webpt\Aquaduck\Exception\InvalidArgumentException
-     */
     public function testThrowExceptionOnInvalidMiddleware()
     {
+        if (phpversion() < '7.0') {
+            $this->setExpectedException('\PHPUnit_Framework_Error');
+        } else {
+            $this->setExpectedException('\TypeError');
+        }
+        
         $this->aquaduck->bind('totally-invalid-argument');
     }
 
-    /**
-     * @expectedException \Webpt\Aquaduck\Exception\InvalidArgumentException
-     */
     public function testThrowExceptionOnInvalidFinalHandler()
     {
+        if (phpversion() < '7.0') {
+            $this->setExpectedException('\PHPUnit_Framework_Error');
+        } else {
+            $this->setExpectedException('\TypeError');
+        }
+
         $aquaduck = $this->aquaduck;
         $aquaduck(1, 'totally-invalid-argument');
     }

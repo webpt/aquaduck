@@ -20,11 +20,14 @@ class NextTest extends \PHPUnit_Framework_TestCase
         return call_user_func($callback, $subject, $error);
     }
 
-    /**
-     * @expectedException \Webpt\Aquaduck\Exception\InvalidArgumentException
-     */
     public function testThrowsExceptionOnInvalidDoneCallback()
     {
+        if (phpversion() < '7.0') {
+            $this->setExpectedException('\PHPUnit_Framework_Error');
+        } else {
+            $this->setExpectedException('\TypeError');
+        }
+
         new Next(new SplPriorityQueue(), 'INVALID CALLBACK');
     }
 

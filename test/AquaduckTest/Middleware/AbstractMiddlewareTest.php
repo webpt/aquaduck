@@ -52,11 +52,14 @@ class AbstractMiddlewareTest extends \PHPUnit_Framework_TestCase
         $this->assertContains(4, $result);
     }
 
-    /**
-     * @expectedException \Webpt\Aquaduck\Exception\InvalidArgumentException
-     */
     public function testThrowsExceptionOnInvalidCallback()
     {
+        if (phpversion() < '7.0') {
+            $this->setExpectedException('\PHPUnit_Framework_Error');
+        } else {
+            $this->setExpectedException('\TypeError');
+        }
+
         $middleware = $this->middleware;
         $middleware(array(), 'INVALID-CALLBACK');
     }

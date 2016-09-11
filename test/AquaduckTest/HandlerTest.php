@@ -16,20 +16,26 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $this->handler = new Handler();
     }
 
-    /**
-     * @expectedException \Webpt\Aquaduck\Exception\InvalidArgumentException
-     */
     public function testThrowExceptionOnInvalidMiddlewareCallback()
     {
+        if (phpversion() < '7.0') {
+            $this->setExpectedException('\PHPUnit_Framework_Error');
+        } else {
+            $this->setExpectedException('\TypeError');
+        }
+
         $handler = $this->handler;
         $handler('totally-invalid-argument', 1, null, function() {});
     }
 
-    /**
-     * @expectedException \Webpt\Aquaduck\Exception\InvalidArgumentException
-     */
     public function testThrowExceptionOnInvalidNextCallback()
     {
+        if (phpversion() < '7.0') {
+            $this->setExpectedException('\PHPUnit_Framework_Error');
+        } else {
+            $this->setExpectedException('\TypeError');
+        }
+
         $handler = $this->handler;
         $handler(function() {}, 1, null, 'totally-invalid-argument');
     }

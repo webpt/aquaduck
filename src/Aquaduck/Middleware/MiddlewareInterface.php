@@ -4,5 +4,10 @@ namespace Webpt\Aquaduck\Middleware;
 
 interface MiddlewareInterface
 {
-    public function __invoke($subject, $next = null);
+    /**
+     * @param mixed $subject
+     * @param callable $next
+     * @return mixed
+     */
+    public function __invoke($subject, callable $next = null);
 }

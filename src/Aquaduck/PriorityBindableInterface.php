@@ -2,11 +2,14 @@
 
 namespace Webpt\Aquaduck;
 
+use Webpt\Aquaduck\ErrorHandler\ErrorHandlerInterface;
+use Webpt\Aquaduck\Middleware\MiddlewareInterface;
+
 interface PriorityBindableInterface
 {
     /**
-     * @param ErrorHandler\ErrorHandlerInterface|MiddlewareInterface|callable $middleware
+     * @param ErrorHandlerInterface|MiddlewareInterface|callable $middleware
      * @param int $priority
      */
-    public function bind($middleware, $priority = 1);
+    public function bind(callable $middleware, $priority = 1);
 }

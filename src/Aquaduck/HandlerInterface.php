@@ -4,5 +4,12 @@ namespace Webpt\Aquaduck;
 
 interface HandlerInterface
 {
-    public function __invoke($middleware, $subject, $err, $next);
+    /**
+     * @param callable $middleware
+     * @param mixed $subject
+     * @param mixed $err
+     * @param callable $next
+     * @return mixed
+     */
+    public function __invoke(callable $middleware, $subject, $err, callable $next);
 }

@@ -3,19 +3,20 @@
 namespace Webpt\Aquaduck;
 
 use SplPriorityQueue;
-use Webpt\Aquaduck\Exception\InvalidArgumentException;
 
 class Next
 {
     private $queue;
     private $done;
 
-    public function __construct(SplPriorityQueue $queue, $done, $handler = null)
+    /**
+     * Next constructor.
+     * @param SplPriorityQueue $queue
+     * @param callable $done
+     * @param callable $handler
+     */
+    public function __construct(SplPriorityQueue $queue, callable $done, callable $handler = null)
     {
-        if (!is_callable($done)) {
-            throw new InvalidArgumentException('2nd constructor argument must be callable');
-        }
-
         $this->queue   = clone $queue;
         $this->done    = $done;
         $this->handler = $handler ?: new Handler();

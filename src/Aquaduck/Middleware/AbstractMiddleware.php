@@ -2,8 +2,6 @@
 
 namespace Webpt\Aquaduck\Middleware;
 
-use Webpt\Aquaduck\Exception\InvalidArgumentException;
-
 abstract class AbstractMiddleware implements MiddlewareInterface
 {
     const ORDER_PREPEND = 'prepend';
@@ -19,36 +17,45 @@ abstract class AbstractMiddleware implements MiddlewareInterface
         return $this->order;
     }
 
+    /**
+     * @return bool
+     */
     public function isPrepend()
     {
         return ($this->getOrder() === static::ORDER_PREPEND);
     }
 
+    /**
+     * @return bool
+     */
     public function isAppend()
     {
         return ($this->getOrder() === static::ORDER_APPEND);
     }
 
-    public function __invoke($subject, $next = null)
+    /**
+     * @param mixed $subject
+     * @param callable $next
+     * @return mixed
+     */
+    public function __invoke($subject, callable $next = null)
     {
-        if ($next && !is_callable($next)) {
-            throw new InvalidArgumentException(
-                sprintf('Second parameter must be a valid callback or null; received "%s"', gettype($next))
-            );
-        }
-
-        if ($this->isPrepend() && $next) {
+        if ($next && $this->isPrepend()) {
             $subject = $next($subject);
         }
 
         $transformed = $this->execute($subject);
 
-        if ($this->isAppend() && $next) {
+        if ($next && $this->isAppend()) {
             return $next($transformed);
         }
 
         return $transformed;
     }
 
+    /**
+     * @param mixed $subject
+     * @return mixed
+     */
     abstract protected function execute($subject);
 }

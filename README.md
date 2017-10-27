@@ -1,7 +1,7 @@
 Aquaduck
 ========
 
-This package is heavily inspired by zendframework/zend-strategility [zendframework/zend-strategility](https://github.com/zendframework/zend-strategility).
+This package is heavily inspired by zendframework/zend-stratigility [zendframework/zend-stratigility](https://github.com/zendframework/zend-stratigility).
 
 Installation and Requirements
 -----------------------------
